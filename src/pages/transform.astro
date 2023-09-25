@@ -1,0 +1,130 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+---
+
+<DefaultLayout>
+  <h1>Transform Effects </h1>
+
+  <div class="container">
+
+    <div class="item-wrap">
+      <div class="item transform-scale"> 1</div>
+      <div class="item-text"> transform: transform-scale</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-scale-x"> 2</div>
+      <div class="item-text"> scaleX</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-rotate"> 3</div>
+      <div class="item-text"> rotate</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-skew-x"> 4</div>
+      <div class="item-text"> skewX</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-skew"> 5</div>
+      <div class="item-text"> skew</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-translate"> 6</div>
+      <div class="item-text"> translate</div>
+    </div>
+
+    <div class="item-wrap">
+      <div class="item transform-matrix"> 7</div>
+      <div class="item-text"> matrix</div>
+    </div>
+
+  </div>
+
+</DefaultLayout>
+
+<style lang="scss">
+:root {
+	--scale: 0.75;
+  --item-colour: #13e9ff;
+}
+
+  html {
+    background-color: #400240;
+    color: white;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .container:hover > :not(:hover){ */
+    /* opacity: 0.4; */
+    /* background: green; */
+  /* } */
+
+  .transform {
+    &-scale:hover{
+      transform: scale(var(--scale));
+    }
+
+    &-scale-x:hover{
+      transform: scaleX(0.5);
+    }
+
+    &-rotate:hover{
+      transform: rotate(45deg);
+    }
+
+    &-skew-x:hover{
+      transform: skewX(-25deg);
+    }
+
+    &-skew:hover{
+      transform: skew(20deg, 5deg);
+    }
+
+    &-translate:hover{
+      transform: translate(5px, 12px);
+    }
+
+    &-matrix:hover{
+      transform: matrix(0.7,-0.5,0.5,0.4,0.5,0.7);
+    }
+  }
+
+  .item {
+
+    margin: auto;
+    transition: .3s;
+    width: 50px;
+    height: 50px;
+    background: var(--item-colour);
+    /* border: 2px solid yellow; */
+    margin: 10px;
+    cursor: pointer;
+    justify-content: auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &-text {
+      /* border: 1px solid gold; */
+      margin: 10px;
+      vertical-calign: center;
+      text-align: center;
+      vertical-align:middle;
+      padding-top:12px;
+    }
+
+    &-wrap{
+      display: flex;
+      flex-direction: row;
+      /* margin-left: 40px; */
+    }
+  }
+
+</style>
